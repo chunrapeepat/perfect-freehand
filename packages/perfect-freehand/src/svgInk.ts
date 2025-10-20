@@ -1,7 +1,7 @@
 import { Vec, VecLike } from 'vec'
 import { getStrokeOutlineTracks } from './getStrokeOutlinePoints'
 import { getStrokePoints } from './getStrokePoints'
-import { StrokeOptions, StrokePoint } from './types'
+import type { StrokeOptions, StrokePoint } from './types'
 import { setStrokePointRadii } from 'getStrokeRadius'
 import { average, precise, toDomPrecision } from 'utils'
 

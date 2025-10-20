@@ -1,4 +1,4 @@
-import { Vec } from './vec'
+import type { Vec } from './vec'
 
 /**
  * The options object for `getStroke` or `getStrokePoints`.

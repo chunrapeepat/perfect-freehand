@@ -1,5 +1,5 @@
 import { EASINGS } from 'easings'
-import { StrokeOptions, StrokePoint } from './types'
+import type { StrokeOptions, StrokePoint } from './types'
 
 const { min } = Math
 

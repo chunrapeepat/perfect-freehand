@@ -1,5 +1,5 @@
 import { average, precise } from 'utils'
-import { StrokePoint } from './types'
+import type { StrokePoint } from './types'
 
 /**
  * Turn an array of stroke points into a path of quadradic curves.
