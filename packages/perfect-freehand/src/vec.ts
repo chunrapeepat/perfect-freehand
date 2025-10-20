@@ -1,4 +1,4 @@
-import { EASINGS } from 'easings'
+import { EASINGS } from './easings'
 
 export function toFixed(v: number) {
   return Math.round(v * 1e2) / 1e2

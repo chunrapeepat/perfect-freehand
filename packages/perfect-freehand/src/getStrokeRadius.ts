@@ -1,4 +1,4 @@
-import { EASINGS } from 'easings'
+import { EASINGS } from './easings'
 import type { StrokeOptions, StrokePoint } from './types'
 
 const { min } = Math

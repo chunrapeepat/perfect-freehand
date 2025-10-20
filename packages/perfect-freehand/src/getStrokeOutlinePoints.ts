@@ -1,4 +1,4 @@
-import { Vec } from 'vec'
+import { Vec } from './vec'
 import type { StrokeOptions, StrokePoint } from './types'
 
 const { PI } = Math

@@ -1,4 +1,4 @@
-import { Vec, VecLike } from 'vec'
+import { Vec, VecLike } from './vec'
 import type { StrokeOptions, StrokePoint } from './types'
 
 const MIN_START_PRESSURE = 0.025

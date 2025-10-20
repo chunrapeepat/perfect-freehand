@@ -1,4 +1,4 @@
-import { average, precise } from 'utils'
+import { average, precise } from './utils'
 import type { StrokePoint } from './types'
 
 /**
