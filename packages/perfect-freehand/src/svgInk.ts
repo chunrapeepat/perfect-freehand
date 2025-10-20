@@ -2,17 +2,13 @@ import { Vec, VecLike } from 'vec'
 import { getStrokeOutlineTracks } from './getStrokeOutlinePoints'
 import { getStrokePoints } from './getStrokePoints'
 import { StrokeOptions, StrokePoint } from './types'
-import assert from 'node:assert'
 import { setStrokePointRadii } from 'getStrokeRadius'
 import { average, precise, toDomPrecision } from 'utils'
 
 export function svgInk(rawInputPoints: VecLike[], options: StrokeOptions = {}) {
-  const { start = {}, end = {} } = options
-  const { cap: capStart = true } = start
-  const { cap: capEnd = true } = end
-  assert(!start.taper && !end.taper, 'cap taper not supported here')
-  assert(!start.easing && !end.easing, 'cap easing not supported here')
-  assert(capStart && capEnd, 'cap must be true')
+  // const { start = {}, end = {} } = options
+  // const { cap: capStart = true } = start
+  // const { cap: capEnd = true } = end
 
   const points = getStrokePoints(rawInputPoints, options)
   setStrokePointRadii(points, options)
