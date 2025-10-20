@@ -1,44 +1,49 @@
+import { Vec } from './vec'
+
 /**
  * The options object for `getStroke` or `getStrokePoints`.
- * @param points An array of points (as `[x, y, pressure]` or `{x, y, pressure}`). Pressure is optional in both cases.
- * @param options (optional) An object with options.
- * @param options.size	The base size (diameter) of the stroke.
- * @param options.thinning The effect of pressure on the stroke's size.
- * @param options.smoothing	How much to soften the stroke's edges.
- * @param options.easing	An easing function to apply to each point's pressure.
- * @param options.simulatePressure Whether to simulate pressure based on velocity.
- * @param options.start Cap, taper and easing for the start of the line.
- * @param options.end Cap, taper and easing for the end of the line.
- * @param options.last Whether to handle the points as a completed stroke.
+ *
+ * @public
  */
 export interface StrokeOptions {
+  /** The base size (diameter) of the stroke. */
   size?: number
+  /** The effect of pressure on the stroke's size. */
   thinning?: number
+  /** How much to soften the stroke's edges. */
   smoothing?: number
   streamline?: number
-  easing?: (pressure: number) => number
+  /** An easing function to apply to each point's pressure. */
+  easing?(pressure: number): number
+  /** Whether to simulate pressure based on velocity. */
   simulatePressure?: boolean
+  /** Cap, taper and easing for the start of the line. */
   start?: {
     cap?: boolean
     taper?: number | boolean
-    easing?: (distance: number) => number
+    easing?(distance: number): number
   }
+  /** Cap, taper and easing for the end of the line. */
   end?: {
     cap?: boolean
     taper?: number | boolean
-    easing?: (distance: number) => number
+    easing?(distance: number): number
   }
-  // Whether to handle the points as a completed stroke.
+  /** Whether to handle the points as a completed stroke. */
   last?: boolean
 }
 
 /**
- * The points returned by `getStrokePoints`, and the input for `getStrokeOutlinePoints`.
+ * The points returned by `getStrokePoints`, and the input for `getStrokeOutlinePoints`
+ *
+ * @public
  */
 export interface StrokePoint {
-  point: number[]
+  point: Vec
+  input: Vec
+  vector: Vec
   pressure: number
   distance: number
-  vector: number[]
   runningLength: number
+  radius: number
 }

@@ -1,6 +1,8 @@
 import type { StrokeOptions } from './types'
 import { getStrokeOutlinePoints } from './getStrokeOutlinePoints'
 import { getStrokePoints } from './getStrokePoints'
+import { Vec, VecLike } from 'vec'
+import { setStrokePointRadii } from 'getStrokeRadius'
 
 /**
  * ## getStroke
@@ -16,10 +18,12 @@ import { getStrokePoints } from './getStrokePoints'
  * @param options.end Cap, taper and easing for the end of the line.
  * @param options.last Whether to handle the points as a completed stroke.
  */
-
 export function getStroke(
-  points: (number[] | { x: number; y: number; pressure?: number })[],
-  options: StrokeOptions = {} as StrokeOptions
-): number[][] {
-  return getStrokeOutlinePoints(getStrokePoints(points, options), options)
+  points: VecLike[],
+  options: StrokeOptions = {}
+): Vec[] {
+  return getStrokeOutlinePoints(
+    setStrokePointRadii(getStrokePoints(points, options), options),
+    options
+  )
 }
